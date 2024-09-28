@@ -37,9 +37,6 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: true,
-        ),
         body: PageView(
           controller: pageController,
           onPageChanged: onItemTapped,

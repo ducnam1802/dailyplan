@@ -68,6 +68,12 @@ class _LoginPageState extends State<LoginPage> {
                               hintText: 'Email',
                               border: InputBorder.none,
                             ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Vui lòng nhập email';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                         const SizedBox(
@@ -104,13 +110,19 @@ class _LoginPageState extends State<LoginPage> {
                               hintText: 'Mật khẩu',
                               border: InputBorder.none,
                             ),
+                            validator: (value) {
+                              if(value == null || value.isEmpty){
+                                return 'Vui lòng nhập Mật khẩu';
+                              }
+                              return null;
+                            },                           
                           ),
                         ),
                         IconButton(
                           icon: Icon(
                             passwordVisible
-                                ? Icons.visibility_off
-                                : Icons.visibility,
+                                ? Icons.visibility
+                                : Icons.visibility_off,
                             color: Colors.grey,
                           ),
                           onPressed: () {
@@ -125,7 +137,6 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 10,
                   ),
-
                   ElevatedButton(
                       onPressed: () {
                         if (_formkey.currentState!.validate()) {
